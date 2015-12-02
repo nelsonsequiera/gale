@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="ISO-8859-1">
+<title>gale</title>
+</head>
+<body>
+
+<!-- if article date is within 24 hours give in hours
+ -->
+	 {% if rand_article %}
+	 	<h1>{{ rand_article.title }}</h1>
+	 	<h5>{{ rand_article.pub_date }}</h5>
+	 	<img src="{{ rand_article.image.url }}" width="400" height="400">
+	 	<p><strong>{{ rand_article.body | truncatewords:100 }}</strong></p>
+	 	<a href="page/{{ rand_article.id }}">CLICK HERE TO READ</a>
+	 {% endif %}
+ <hr/>
+	{% for article in articles %}
+		{% if not article.id == rand_article.id %}
+			<h3>{{ article.title }}</h3>
+			<p>{{ article.body | truncatewords:100 }}</p>
+			<a href="page/{{ article.id }}">CLICK HERE TO READ</a>
+			<hr/>
+		{% endif %}
+	{% endfor %}
+</body>
+</html>
