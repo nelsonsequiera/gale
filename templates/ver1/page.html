@@ -6,9 +6,8 @@
 </head>
 <body>
 	<h1>{{ article.title }}</h1><br/>
+	<h5>{{ article.pub_date }} | {{ article.author}}</h5>
 	<img src="{{ article.image.url }}" width="200" height="200"><br/>
-	<h5>{{ article.author }}</h5>
-	<h5>{{ article.pub_date }}</h5><br/>
 	<p>{{ article.body }}</p>
 	
 </body>

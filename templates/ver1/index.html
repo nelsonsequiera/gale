@@ -10,7 +10,7 @@
  -->
 	 {% if rand_article %}
 	 	<h1>{{ rand_article.title }}</h1>
-	 	<h5>{{ rand_article.pub_date }}</h5>
+	 	<h5>{{ rand_article.pub_date }} | {{ rand_article.author}}</h5>
 	 	<img src="{{ rand_article.image.url }}" width="400" height="400">
 	 	<p><strong>{{ rand_article.body | truncatewords:100 }}</strong></p>
 	 	<a href="page/{{ rand_article.id }}">CLICK HERE TO READ</a>
