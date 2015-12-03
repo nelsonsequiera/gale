@@ -21,6 +21,7 @@ urlpatterns = patterns('',
                        url(r'^admin/', include(admin.site.urls)),
                        url(r'^gale/', include('ver1.urls')),
                        )
+
 if settings .DEBUG:
     urlpatterns += patterns(
         'django.views.static',
