@@ -22,6 +22,8 @@ urlpatterns = patterns('',
                        url(r'^gale/', include('ver1.urls')),
                        )
 
+
+""" for serving media files"""
 if settings .DEBUG:
     urlpatterns += patterns(
         'django.views.static',

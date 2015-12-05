@@ -1,28 +1,97 @@
-<!DOCTYPE html>
-<html>
-<head>
-<meta charset="ISO-8859-1">
-<title>gale</title>
-</head>
-<body>
-
-<!-- if article date is within 24 hours give in hours
- -->
-	 {% if rand_article %}
-	 	<h1>{{ rand_article.title }}</h1>
-	 	<h5>{{ day }} | {{rand_article.pub_date }} | {{ rand_article.author}}</h5>
-	 	<img src="{{ rand_article.image.url }}" width="400" height="400">
-	 	<p><strong>{{ rand_article.body | truncatewords:100 }}</strong></p>
-	 	<a href="page/{{ rand_article.id }}">CLICK HERE TO READ</a>
-	 {% endif %}
- <hr/>
-	{% for article in articles %}
-		{% if not article.id == rand_article.id %}
-			<h3>{{ article.title }}</h3>
-			<p>{{ article.body | truncatewords:100 }}</p>
-			<a href="page/{{ article.id }}">CLICK HERE TO READ</a>
-			<hr/>
+{% extends 'base.html' %}
+{% load staticfiles %}
+{% block title-block %}Articles{% endblock %}
+	
+	<!--------------------------------------------------- body ---------------------------------------------------------->
+ 	{% block bodyblock %}
+	 	<!---------------------------------------------- preview --------------------------------------------------------->
+		{% if random_article %}
+			<h1>{{ random_article.title }}</h1>
+			<h5>{{ day }} | {{random_article.pub_date }} | {{ random_article.author}}</h5>
+			<img src="{{ random_article.image.url }}" width="400" height="400">
+			<p><strong>{{ random_article.body | truncatewords:100 }}</strong></p>
+			<a href="page/{{ random_article.id }}">CLICK HERE TO READ</a>
 		{% endif %}
-	{% endfor %}
-</body>
+		
+		<hr/>
+		<!---------------------------------------------- article list ----------------------------------------------------->
+		{% for article in topThree_articles %}
+																	<!-- {% if not article.id == rand_article.id %} -->
+				<h3>{{ article.title }}</h3>
+				<p>{{ article.body | truncatewords:100 }}</p>
+				<a href="page/{{ article.id }}">CLICK HERE TO READ</a>
+				<hr/>
+																	<!-- {% endif %} -->
+		{% endfor %}
+		
+		<!------------------------------------------- what to read next ---------------------------------------------------->
+		<div id="what" align="center">
+		{% for article in remaining_articles|slice:"0:4" %}
+			<div style="float:left; width:100px; height:100px">
+				{{ article.title }}
+				{{ article.author }}
+			</div>
+		{% endfor %}
+		</div>
+
+	<a href="base">base html</a>
+	{% endblock %}
+
+
+
+
+
+
+
+
+
+
+
+
+<!-- ------------------------------------------@@@@@@@@  backup    @@@@@@@@@ ------------------------------------>
+
+<!-- <!DOCTYPE html>
+
+<html>
+	<head>
+		<meta charset="ISO-8859-1">
+		<title>index</title>
+	</head>
+	------------------------------------------------- body --------------------------------------------------------
+ 	<body>
+	 	-------------------------------------------- preview -------------------------------------------------------
+		{% if random_article %}
+			<h1>{{ random_article.title }}</h1>
+			<h5>{{ day }} | {{random_article.pub_date }} | {{ random_article.author}}</h5>
+			<img src="{{ random_article.image.url }}" width="400" height="400">
+			<p><strong>{{ random_article.body | truncatewords:100 }}</strong></p>
+			<a href="page/{{ random_article.id }}">CLICK HERE TO READ</a>
+		{% endif %}
+		
+		<hr/>
+		-------------------------------------------- article list ---------------------------------------------------
+		{% for article in topThree_articles %}
+																	{% if not article.id == rand_article.id %}
+				<h3>{{ article.title }}</h3>
+				<p>{{ article.body | truncatewords:100 }}</p>
+				<a href="page/{{ article.id }}">CLICK HERE TO READ</a>
+				<hr/>
+																	{% endif %}
+		{% endfor %}
+		
+		----------------------------------------- what to read next --------------------------------------------------
+		<div id="what" align="center">
+		{% for article in remaining_articles|slice:"0:4" %}
+			<div style="float:left; width:100px; height:100px">
+				{{ article.title }}
+				{{ article.author }}
+			</div>
+		{% endfor %}
+		</div>
+
+	<a href="base">base html</a>
+	</body>
 </html>
+ -->
+
+

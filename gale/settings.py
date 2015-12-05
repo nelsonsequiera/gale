@@ -18,7 +18,10 @@ BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 
 TEMPLATES_PATH = os.path.join(BASE_DIR, 'templates')
 
-STATIC_PATH = os.path.join(BASE_DIR, 'static')
+MEDIA_URL = '/media/'
+
+MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
+
 
 # Quick-start development settings - unsuitable for production
 # See https://docs.djangoproject.com/en/1.8/howto/deployment/checklist/
@@ -60,7 +63,7 @@ ROOT_URLCONF = 'gale.urls'
 TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
-        'DIRS': [TEMPLATES_PATH],
+        'DIRS': [os.path.join(BASE_DIR, 'templates')],
         'APP_DIRS': True,
         'OPTIONS': {
             'context_processors': [
@@ -106,13 +109,12 @@ USE_TZ = True
 
 STATIC_URL = '/static/'
 
-MEDIA_URL = '/media/'
+STATIC_PATH = os.path.join(BASE_DIR, 'static')
 
 STATICFILES_DIR = (
                    STATIC_PATH,
                    )
 
-MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
 
 
 

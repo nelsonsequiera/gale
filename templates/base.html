@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+
+<html>
+	<head>
+	{% load staticfiles %}
+	<meta charset="ISO-8859-1">
+	<title>{% block title-block %}kua{% endblock %}</title>
+
+	<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+	<link href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css" rel="stylesheet">
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+ 	<script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
+ 	
+<!-- ------------------------------------------------   body  ------------------------------------------ -->
+</head>
+<body>
+<img src="{{ l.jpg.url }}" alt="dddddddd">
+	<div class="container">
+		 <div class="row">
+  			<div class="col-sm-2">
+  				<div class="sidebar-nav"> 
+     				<div class="navbar navbar-default" role="navigation">
+      					<div class="container">
+          					<button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".sidebar-navbar-collapse">
+					            <span class="icon-bar"></span>
+					            <span class="icon-bar"></span>
+					            <span class="icon-bar"></span>
+       					 	</button>
+				       		<span class="visible-xs navbar-brand">Menu</span>
+				        </div>
+				        <div class="navbar-collapse collapse sidebar-navbar-collapse" id="defaultNavbar1">
+				        	<ul class="nav navbar-nav">
+					            <li class="active" id="home-image">
+					            	<div class="row"><a href="#home"><img class="col-xs-12 media-object " src="{% static "images/home.png" %}" alt="home icon"/></a></div>
+					            </li>																			
+					            <li>
+					            	<div class="row">
+					            		<div class="col-sm-6" id="just-glyph"><a class="btn btn-default btn-lg btn-block" href="#tasks"><span class="glyphicon glyphicon-tasks"></span></a></div>
+					            		<div class="col-sm-6" id="search-glyph"><a class="btn btn-default btn-lg btn-block" href="#search"><span class="glyphicon glyphicon-search"></span></a></div>
+					            	</div>
+					            </li>
+					          	<li>
+					            	<div class="row row-centered"><a href="#nav1"><img class="col-xs-12 col-centered media-object" src="{{ empty.png.url }}" alt="home icon"></a></div>
+					            	<p class="text-center">nav-1</p>
+					            </li>
+					            <li>
+					            	<div class="row row-centered"><a href="#nav2"><img  class="col-xs-12 col-centered media-object" src="{{ empty.png }}" alt="home icon"></a></div>
+					            	<p class="text-center">nav-2</p>
+					            </li>
+					            <li>
+					            	<div class="row row-centered"><a href="#nav3"><img  class="col-xs-12 col-centered media-object" src="{{ empty.png }}" alt="home icon"></a></div>
+					           		<p class="text-center">nav-3</p>
+					            </li>
+					            <li>
+					            	<div class="row row-centered"><a href="#nav4"><img  class="col-xs-12 col-centered media-object" src="{{ empty.png }}" alt="home icon"></a></div>
+					            	<p class="text-center">nav-4</p>
+					            </li>
+				           	</ul>
+				        </div>
+					</div>
+ 				</div>	
+			</div>
+			<div class="col-sm-10">	
+		{% block bodyblock %}	{% endblock %}
+		</div>
+		</div>
+	</div>		
+	 
+				        
+</body>
+
+</html>
