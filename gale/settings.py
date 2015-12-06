@@ -119,25 +119,3 @@ STATIC_PATH = os.path.join(BASE_DIR, 'static')
 STATICFILES_DIR = (
                    STATIC_PATH,
                    )
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
