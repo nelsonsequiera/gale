@@ -13,13 +13,18 @@ https://docs.djangoproject.com/en/1.8/ref/settings/
 # Build paths inside the project like this: os.path.join(BASE_DIR, ...)
 import os
 
-
+""" my base dir in the system"""
 BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 
+""" my templates path"""
 TEMPLATES_PATH = os.path.join(BASE_DIR, 'templates')
 
+
+""" my media url for all media files"""
 MEDIA_URL = '/media/'
 
+
+"""my media folder location"""
 MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
 
 
@@ -44,7 +49,7 @@ INSTALLED_APPS = (
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
-    'ver1',
+    'ver1',                                      
 )
 
 MIDDLEWARE_CLASSES = (
