@@ -1,8 +1,9 @@
 <!DOCTYPE html>
 
 <html>
+
 	<head>
-	{% load staticfiles %}
+{% load staticfiles %}
 	<meta charset="ISO-8859-1">
 	<title>{% block title-block %}kua{% endblock %}</title>
 
@@ -14,7 +15,7 @@
 <!-- ------------------------------------------------   body  ------------------------------------------ -->
 </head>
 <body>
-<img src="{{ l.jpg.url }}" alt="dddddddd">
+{% load staticfiles %}
 	<div class="container">
 		 <div class="row">
   			<div class="col-sm-2">
@@ -29,39 +30,43 @@
 				       		<span class="visible-xs navbar-brand">Menu</span>
 				        </div>
 				        <div class="navbar-collapse collapse sidebar-navbar-collapse" id="defaultNavbar1">
-				        	<ul class="nav navbar-nav">
-					            <li class="active" id="home-image">
-					            	<div class="row"><a href="#home"><img class="col-xs-12 media-object " src="{% static "images/home.png" %}" alt="home icon"/></a></div>
-					            </li>																			
+				        	<ul class="nav navbar-nav list-group">
+					            <li class="list-group-item active" id="home-image">
+					            	<a href="#home"><button type="button" class="btn btn-lg btn-primary btn-block">Home</button></a>
+					            </li>	
+					            																		
 					            <li>
-					            	<div class="row">
-					            		<div class="col-sm-6" id="just-glyph"><a class="btn btn-default btn-lg btn-block" href="#tasks"><span class="glyphicon glyphicon-tasks"></span></a></div>
-					            		<div class="col-sm-6" id="search-glyph"><a class="btn btn-default btn-lg btn-block" href="#search"><span class="glyphicon glyphicon-search"></span></a></div>
-					            	</div>
+					            	
+					            		<div class="col-sm-6" id="just-glyph"><a href="#tasks"><button type="button" class="btn btn-default btn-lg btn-block"><span class="glyphicon glyphicon-tasks"></span></button></a></div>
+					            		<div class="col-sm-6" id="search-glyph"><a href="#search"><button type="button" class="btn btn-default btn-lg btn-block"><span class="glyphicon glyphicon-search"></span></button></a></div>
+					            	
+					            </li>
+					           
+					          	<li>
+					            	<a href="#nav1"><button type="button" class="btn btn-default btn-lg btn-block text-center">Image 1</button></a>
+					            	
 					            </li>
 					          	<li>
-					            	<div class="row row-centered"><a href="#nav1"><img class="col-xs-12 col-centered media-object" src="{{ empty.png.url }}" alt="home icon"></a></div>
-					            	<p class="text-center">nav-1</p>
+					            	<a href="#nav1"><button type="button" class="btn btn-default btn-lg btn-block">Image 2</button></a>
+					            	
 					            </li>
-					            <li>
-					            	<div class="row row-centered"><a href="#nav2"><img  class="col-xs-12 col-centered media-object" src="{{ empty.png }}" alt="home icon"></a></div>
-					            	<p class="text-center">nav-2</p>
+					            	<li>
+					            	<a href="#nav1"><button type="button" class="btn btn-default btn-lg btn-block">Image 3</button></a>
+					            	
 					            </li>
-					            <li>
-					            	<div class="row row-centered"><a href="#nav3"><img  class="col-xs-12 col-centered media-object" src="{{ empty.png }}" alt="home icon"></a></div>
-					           		<p class="text-center">nav-3</p>
-					            </li>
-					            <li>
-					            	<div class="row row-centered"><a href="#nav4"><img  class="col-xs-12 col-centered media-object" src="{{ empty.png }}" alt="home icon"></a></div>
-					            	<p class="text-center">nav-4</p>
+					            	<li>
+					            	<a href="#nav1"><button type="button" class="btn btn-default btn-lg btn-block">Image 4</button></a>
+					            	
 					            </li>
 				           	</ul>
 				        </div>
 					</div>
  				</div>	
 			</div>
-			<div class="col-sm-10">	
+			<div class="col-sm-10" style="padding-left:50px">	
 		{% block bodyblock %}	{% endblock %}
+		
+		
 		</div>
 		</div>
 	</div>		

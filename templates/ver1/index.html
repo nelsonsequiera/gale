@@ -8,8 +8,8 @@
 		{% if random_article %}
 			<h1>{{ random_article.title }}</h1>
 			<h5>{{ day }} | {{random_article.pub_date }} | {{ random_article.author}}</h5>
-			<img src="{{ random_article.image.url }}" width="400" height="400">
-			<p><strong>{{ random_article.body | truncatewords:100 }}</strong></p>
+			<img class="center-block img-responsive" src="{{ random_article.image.url }}" width="700" height="300" vspace="20px">
+			<p class="text-justify"><strong>{{ random_article.body | truncatewords:100 }}</strong></p>
 			<a href="page/{{ random_article.id }}">CLICK HERE TO READ</a>
 		{% endif %}
 		
@@ -25,15 +25,24 @@
 		{% endfor %}
 		
 		<!------------------------------------------- what to read next ---------------------------------------------------->
-		<div id="what" align="center">
-		{% for article in remaining_articles|slice:"0:4" %}
-			<div style="float:left; width:100px; height:100px">
-				{{ article.title }}
-				{{ article.author }}
-			</div>
-		{% endfor %}
+		<h2>What To Read Next</h2>
+		
+		<div class="row"  id="what" align="center" style="background-color:white" >
+			{% for a_article in random_four %}
+				<div class="col-sm-3">
+					<ul class="list-unstyled">
+					<li>
+						<a href="page/{{ a_article.id }}" class="thumbnail">
+						<img class="center-block img-responsive" src="{{ a_article.image.url }}">
+						</a>
+					</li>
+					<li>
+						{{a_article.title}}
+					</li>
+					</ul>
+				</div>
+			{% endfor %}
 		</div>
-
 	<a href="base">base html</a>
 	{% endblock %}
 
@@ -42,8 +51,27 @@
 
 
 
+<!-- ----------------------------------what to read next backup---------------------------------------------------- -->
 
 
+
+		<!-- <h2>What To Read Next</h2>
+		<div class="row"  id="what" align="center" style="background-color:white" >
+			{% for article in remaining_articles|slice:"0:4" %}
+				<div class="col-sm-3">
+					<ul class="list-unstyled">
+					<li>
+						<a href="page/{{ article.id }}" class="thumbnail">
+						<img src="{{ article.image.url }}">
+						</a>
+					</li>
+					<li>
+						{{article.title}}
+					</li>
+					</ul>
+				</div>
+			{% endfor %}
+		</div> -->
 
 
 

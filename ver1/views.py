@@ -2,7 +2,7 @@ from django.shortcuts import render
 from ver1.models import Article
 from sqlite3 import Date
 import random
-from django.http.response import HttpResponseRedirect
+
 
 # Create your views here.
 def index(request):
@@ -11,18 +11,25 @@ def index(request):
     all_articles = Article.objects.filter(pub_date__range = [startdate, enddate]).order_by('-pub_date')
     
     random_article = random.choice(all_articles)
-    
-    topThree_articles = all_articles[:3] 
-    
     day = random_article.pub_date.strftime("%A")
     
-    remaining_articles = all_articles[3:]
+    topThree_articles = all_articles[:3]
+    
+    random_four = Article.objects.filter(pub_date__range = [startdate, enddate]).order_by('?')[:4]
     
     
-    context_dict = {'remaining_articles' : remaining_articles}
+        
+    
+    
+    
+    
+    context_dict = {}
     context_dict[ 'random_article' ] = random_article
     context_dict[ 'topThree_articles' ] = topThree_articles
     context_dict['day'] = day
+    context_dict['random_four'] = random_four
+    
+   
      
     return render(request, 'ver1/index.html', context_dict) 
     
